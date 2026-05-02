@@ -2,6 +2,24 @@
  * Marketing imagery uses the same `/course-images/` assets as the course catalog
  * so the home experience matches what learners see in the app.
  */
+
+/** Single full-width hero background (replace asset in /public when you have final art). */
+export const homeHeroBannerImage = {
+  src: '/course-images/available-1.jpg',
+  fallbackSrc: '/course-images/new-arrival-1.jpg',
+  alt: 'FM and CRE professionals learning with FMNXT'
+} as const
+
+/**
+ * Two-column hero visual — `/public/marketing/hero-home-learners.jpg` (Unsplash;
+ * swap for FMNXT-owned photography when ready).
+ */
+export const homeHeroSplitImage = {
+  src: '/marketing/hero-home-learners.jpg',
+  fallbackSrc: '/course-images/available-1.jpg',
+  alt: 'Team collaborating in a professional learning and workplace setting'
+} as const
+
 export const homeHeroCollageImages = [
   {
     src: '/course-images/new-arrival-1.jpg',
@@ -21,43 +39,43 @@ export const homeHeroCollageImages = [
 ] as const
 
 export const homeVideoSpotlightImage = {
-  src: '/course-images/available-1.jpg',
-  fallbackSrc: '/course-images/new-arrival-1.jpg',
+  src: '/course-images/available-2.jpg',
+  fallbackSrc: '/course-images/new-arrival-2.jpg',
   alt: 'Video module preview from FMNXT courses'
 } as const
 
 export const homeVideoLeftColumnImages = [
   {
-    src: '/course-images/new-arrival-1.jpg',
-    fallbackSrc: '/course-images/available-1.jpg',
+    src: '/course-images/available-3.jpg',
+    fallbackSrc: '/course-images/new-arrival-3.jpg',
     alt: 'FMNXT course materials and learning context'
   },
   {
-    src: '/course-images/new-arrival-2.jpg',
-    fallbackSrc: '/course-images/available-2.jpg',
+    src: '/course-images/new-arrival-1.jpg',
+    fallbackSrc: '/course-images/available-1.jpg',
     alt: 'FMNXT professional learning environment'
   }
 ] as const
 
 export const homeVideoSideRailImages = [
   {
-    src: '/course-images/available-1.jpg',
-    fallbackSrc: '/course-images/new-arrival-1.jpg',
+    src: '/course-images/new-arrival-2.jpg',
+    fallbackSrc: '/course-images/available-2.jpg',
     alt: 'FMNXT catalog course thumbnail'
-  },
-  {
-    src: '/course-images/available-2.jpg',
-    fallbackSrc: '/course-images/new-arrival-2.jpg',
-    alt: 'FMNXT featured program imagery'
-  },
-  {
-    src: '/course-images/available-3.jpg',
-    fallbackSrc: '/course-images/new-arrival-3.jpg',
-    alt: 'FMNXT course cover from the library'
   },
   {
     src: '/course-images/new-arrival-3.jpg',
     fallbackSrc: '/course-images/available-3.jpg',
+    alt: 'FMNXT featured program imagery'
+  },
+  {
+    src: '/course-images/available-1.jpg',
+    fallbackSrc: '/course-images/new-arrival-1.jpg',
+    alt: 'FMNXT course cover from the library'
+  },
+  {
+    src: '/course-images/available-3.jpg',
+    fallbackSrc: '/course-images/new-arrival-3.jpg',
     alt: 'FMNXT learning track visual'
   }
 ] as const

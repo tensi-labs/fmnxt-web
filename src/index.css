@@ -1,27 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-navy: #0a2540;
-  --color-brand-gold: #06b6d4;
-  --color-brand-gold-light: #cffafe;
-  --color-brand-gold-dark: #0e7490;
-  /* Bright accents (home marketing) */
-  --color-brand-coral: #ff5a5f;
-  --color-brand-sun: #ffb020;
-  --color-brand-mint: #34d399;
-  --color-brand-violet-bright: #8b5cf6;
+  /* Marketing / hero — Plus Jakarta Sans (see index.html) */
+  --font-family-hero: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  /* Primary rgb(52, 52, 255); surfaces: cool neutrals */
+  --color-brand-navy: #161654;
+  --color-brand-gold: #3434ff;
+  --color-brand-gold-light: #ececff;
+  --color-brand-gold-dark: #2b2bdd;
+  /* Accents: use sparingly (amber CTA, soft purple, light blue highlights) */
+  --color-brand-coral: #f59e0b;
+  --color-brand-sun: #f59e0b;
+  --color-brand-mint: #93c5fd;
+  --color-brand-violet-bright: #7c3aed;
 }
 
 :root {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --brand-navy: #0a2540;
-  --brand-gold: #06b6d4;
-  --brand-gold-light: #cffafe;
-  --brand-gold-dark: #0e7490;
-  --brand-coral: #ff5a5f;
-  --brand-sun: #ffb020;
-  --brand-mint: #34d399;
-  --brand-violet-bright: #8b5cf6;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --brand-navy: #161654;
+  --brand-gold: #3434ff;
+  --brand-gold-light: #ececff;
+  --brand-gold-dark: #2b2bdd;
+  --brand-coral: #f59e0b;
+  --brand-sun: #f59e0b;
+  --brand-mint: #93c5fd;
+  --brand-violet-bright: #7c3aed;
 }
 
 html {
@@ -30,7 +33,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #f0f9ff;
+  background-color: #ffffff;
+  color: #111827;
   /* Prevent sideways scroll from decorative -left/-right blobs and polaroids */
   overflow-x: clip;
 }
@@ -212,18 +216,9 @@ body {
   animation: home-bob-slow 4.8s ease-in-out infinite;
 }
 
+/* Home shell: airy light tint (primary-tinted canvas) */
 .home-shell-gradient {
-  background: linear-gradient(
-    132deg,
-    #e0f2fe 0%,
-    #cffafe 18%,
-    #fef9c3 38%,
-    #fce7f3 58%,
-    #d9f99d 78%,
-    #e0f2fe 100%
-  );
-  background-size: 320% 320%;
-  animation: home-shell-gradient 26s ease infinite;
+  background: linear-gradient(180deg, #f8f8ff 0%, #ececff 42%, #fafafa 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -462,11 +457,10 @@ body {
 .home-accent-shimmer {
   background: linear-gradient(
     90deg,
-    var(--color-brand-gold, #06b6d4) 0%,
-    var(--color-brand-sun, #ffb020) 25%,
-    var(--color-brand-mint, #34d399) 50%,
-    var(--color-brand-gold, #06b6d4) 75%,
-    var(--color-brand-gold-dark, #0e7490) 100%
+    #3434ff 0%,
+    #5a5aff 35%,
+    #3434ff 70%,
+    #2b2bdd 100%
   );
   background-size: 200% 100%;
   animation: home-accent-shimmer 3.2s ease-in-out infinite alternate;
@@ -475,7 +469,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .home-accent-shimmer {
     animation: none;
-    background: linear-gradient(90deg, #06b6d4, #0e7490);
+    background: linear-gradient(90deg, #3434ff, #5a5aff);
   }
 }
 
@@ -552,4 +546,52 @@ body {
   .home-faq-polaroid-b {
     animation: none;
   }
+}
+
+/* Home hero CTAs */
+.hero-academy-btn-primary.ant-btn,
+.hero-academy-btn-secondary.ant-btn {
+  border-radius: 0.75rem !important;
+}
+
+/* ---- Home marketing: decorative surfaces (no image assets) ---- */
+.home-dot-grid {
+  background-image: radial-gradient(rgba(52, 52, 255, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.home-dot-grid-subtle {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-dot-grid,
+  .home-dot-grid-subtle {
+    background-image: none;
+  }
+}
+
+/* Elevated marketing card — soft lift + top accent */
+.home-surface-elevated {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 24px 48px -24px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+.home-accent-top {
+  position: relative;
+}
+
+.home-accent-top::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  border-radius: 9999px 9999px 0 0;
+  background: linear-gradient(90deg, transparent, rgba(52, 52, 255, 0.55), rgba(52, 52, 255, 0.9), rgba(52, 52, 255, 0.55), transparent);
+  opacity: 0.85;
 }

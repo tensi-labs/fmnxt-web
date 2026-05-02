@@ -24,7 +24,7 @@ export const newArrivalCategories = [{id: 'all', label: 'All'}, ...newArrivalCat
 /** Top / available courses block — title, tabs, and carousel on the home page. */
 export const availableCoursesSectionMeta = {
   kicker: 'Featured programs',
-  title: 'Top courses',
+  title: 'Programs picked for real-world FM & CRE work',
   subtitle: 'Hand-picked FM and CRE programs with practical lessons and member pricing. Browse by focus area.'
 } as const;
 

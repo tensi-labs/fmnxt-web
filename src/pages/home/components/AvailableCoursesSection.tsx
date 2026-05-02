@@ -12,9 +12,10 @@ type Props = {
   courses: Course[];
   hoverDetails: Record<string, HoverDetail>;
   searchActive?: boolean;
+  tabAccent?: 'brand' | 'academy';
 };
 
-export function AvailableCoursesSection({courses, hoverDetails, searchActive = false}: Props) {
+export function AvailableCoursesSection({courses, hoverDetails, searchActive = false, tabAccent = 'brand'}: Props) {
   const [activeCategoryId, setActiveCategoryId] = useState<string>('all');
   const {scrollRef, scroll} = useCourseCarousel();
 
@@ -32,7 +33,11 @@ export function AvailableCoursesSection({courses, hoverDetails, searchActive = f
   return (
     <section
       id='home-featured'
-      className='relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm shadow-slate-900/5 md:p-8 lg:p-10'>
+      className={`relative overflow-hidden rounded-2xl border p-6 md:p-8 lg:p-10 ${
+        tabAccent === 'academy'
+          ? 'home-accent-top home-surface-elevated border-neutral-200/90 bg-white'
+          : 'border-slate-200/90 bg-white shadow-sm shadow-slate-900/5'
+      }`}>
       <div className='mb-6 md:mb-8'>
         <SectionHeading
           kicker={availableCoursesSectionMeta.kicker}
@@ -53,7 +58,11 @@ export function AvailableCoursesSection({courses, hoverDetails, searchActive = f
                 aria-selected={selected}
                 onClick={() => setActiveCategoryId(id)}
                 className={`shrink-0 border-b-2 pb-3 text-sm font-semibold tracking-tight transition-colors md:text-[0.95rem] ${
-                  selected ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-brand-navy/80'
+                  selected
+                    ? tabAccent === 'academy'
+                      ? 'border-brand-gold text-slate-900'
+                      : 'border-brand-navy text-brand-navy'
+                    : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}>
                 {label}
               </button>
@@ -93,7 +102,9 @@ export function AvailableCoursesSection({courses, hoverDetails, searchActive = f
         <div className='mt-6 border-t border-slate-100 pt-5'>
           <Link
             to='/courses'
-            className='inline-flex items-center gap-1.5 text-sm font-bold text-brand-navy underline-offset-[3px] transition-colors hover:text-brand-gold-dark hover:underline'>
+            className={`inline-flex items-center gap-1.5 text-sm font-bold underline-offset-[3px] transition-colors hover:underline ${
+              tabAccent === 'academy' ? 'text-brand-gold hover:text-brand-gold-dark' : 'text-brand-navy hover:text-brand-gold-dark'
+            }`}>
             {activeCategoryId === 'all' ? 'Show all courses' : `Show all ${activeTab?.label ?? 'category'} courses`}
             <RightOutlined className='text-xs' />
           </Link>

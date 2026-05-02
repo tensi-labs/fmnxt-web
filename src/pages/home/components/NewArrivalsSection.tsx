@@ -12,9 +12,11 @@ type Props = {
   courses: Course[];
   hoverDetails: Record<string, HoverDetail>;
   searchActive?: boolean;
+  /** Match Academy template tab styling (sky accent on muted sections). */
+  tabAccent?: 'brand' | 'academy';
 };
 
-export function NewArrivalsSection({courses, hoverDetails, searchActive = false}: Props) {
+export function NewArrivalsSection({courses, hoverDetails, searchActive = false, tabAccent = 'brand'}: Props) {
   const [activeCategoryId, setActiveCategoryId] = useState<string>('all');
   const {scrollRef, scroll} = useCourseCarousel();
 
@@ -32,7 +34,9 @@ export function NewArrivalsSection({courses, hoverDetails, searchActive = false}
   return (
     <section
       id='home-new'
-      className='relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm shadow-slate-900/5 md:p-8 lg:p-10'>
+      className={`relative overflow-hidden rounded-2xl border p-6 shadow-sm shadow-slate-900/5 md:p-8 lg:p-10 ${
+        tabAccent === 'academy' ? 'border-white/80 bg-white shadow-md' : 'border-slate-200/90 bg-white'
+      }`}>
       <div className='mb-6 md:mb-8'>
         <SectionHeading
           kicker={newArrivalsSectionMeta.kicker}
@@ -53,7 +57,11 @@ export function NewArrivalsSection({courses, hoverDetails, searchActive = false}
                 aria-selected={selected}
                 onClick={() => setActiveCategoryId(id)}
                 className={`shrink-0 border-b-2 pb-3 text-sm font-semibold tracking-tight transition-colors duration-200 md:text-[0.95rem] ${
-                  selected ? 'border-brand-navy text-brand-navy' : 'border-transparent text-slate-500 hover:text-brand-navy/80'
+                  selected
+                    ? tabAccent === 'academy'
+                      ? 'border-brand-gold text-slate-900'
+                      : 'border-brand-navy text-brand-navy'
+                    : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}>
                 {label}
               </button>
@@ -93,7 +101,9 @@ export function NewArrivalsSection({courses, hoverDetails, searchActive = false}
         <div className='mt-6 border-t border-slate-100 pt-5'>
           <Link
             to='/courses'
-            className='inline-flex items-center gap-1.5 text-sm font-bold text-brand-navy underline-offset-[3px] transition-colors hover:text-brand-gold-dark hover:underline'>
+            className={`inline-flex items-center gap-1.5 text-sm font-bold underline-offset-[3px] transition-colors hover:underline ${
+              tabAccent === 'academy' ? 'text-brand-gold hover:text-brand-gold-dark' : 'text-brand-navy hover:text-brand-gold-dark'
+            }`}>
             Show all {activeCategoryLabel}
             <RightOutlined className='text-xs' />
           </Link>

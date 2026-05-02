@@ -11,9 +11,11 @@ type Track = { title: string; copy: string }
 
 type Props = {
   tracks: Track[]
+  /** Renders on the muted “Courses & study paths” surface (template-style card). */
+  surface?: 'default' | 'muted'
 }
 
-export function LearningTracksSection({ tracks }: Props) {
+export function LearningTracksSection({ tracks, surface = 'default' }: Props) {
   const [expanded, setExpanded] = useState<number | null>(0)
   const [sectionRef, sectionInView] = useInView<HTMLElement>({ once: true, threshold: 0.1 })
 
@@ -21,7 +23,11 @@ export function LearningTracksSection({ tracks }: Props) {
     <section
       ref={sectionRef}
       id="home-tracks"
-      className="rounded-[28px] border border-slate-200/90 bg-linear-to-br from-slate-50 via-brand-gold-light/30 to-brand-sun/10 p-6 shadow-md shadow-slate-900/10 ring-1 ring-brand-mint/10 md:rounded-[34px] md:p-8"
+      className={`rounded-2xl p-6 md:rounded-3xl md:p-8 ${
+        surface === 'muted'
+          ? 'border border-white/80 bg-white shadow-md'
+          : 'border border-slate-200 bg-white shadow-sm'
+      }`}
     >
       <SectionHeading
         align="center"
@@ -41,8 +47,10 @@ export function LearningTracksSection({ tracks }: Props) {
               <Card
                 className={`group h-full overflow-hidden rounded-2xl border-slate-200/90 bg-white/95 transition-all duration-500 ${
                   open
-                    ? '-translate-y-1 border-brand-gold/50 shadow-xl shadow-brand-navy/12 ring-1 ring-brand-sun/30'
-                    : 'hover:-translate-y-1 hover:border-brand-gold/40 hover:shadow-xl hover:shadow-brand-navy/10'
+                    ?                       surface === 'muted'
+                      ? '-translate-y-1 border-brand-gold/30 shadow-lg shadow-brand-gold/15 ring-1 ring-brand-gold/25'
+                      : '-translate-y-1 border-brand-navy/20 shadow-lg shadow-slate-200/80 ring-1 ring-brand-navy/10'
+                    : 'hover:-translate-y-1 hover:border-slate-300 hover:shadow-md hover:shadow-slate-200/60'
                 }`}
                 styles={{ body: { paddingTop: 16 } }}
                 cover={
@@ -67,7 +75,7 @@ export function LearningTracksSection({ tracks }: Props) {
                   onClick={() => setExpanded((v) => (v === i ? null : i))}
                 >
                   <span className="min-w-0 flex-1">
-                    <Typography.Text strong className="block text-brand-navy">
+                    <Typography.Text strong className={`block ${surface === 'muted' ? 'text-slate-900' : 'text-brand-navy'}`}>
                       {track.title}
                     </Typography.Text>
                     <Typography.Paragraph className={`mb-0 mt-2 text-slate-600 ${open ? '' : 'line-clamp-2'}`}>
@@ -75,7 +83,9 @@ export function LearningTracksSection({ tracks }: Props) {
                     </Typography.Paragraph>
                   </span>
                   <DownOutlined
-                    className={`mt-1 shrink-0 text-brand-gold-dark transition-transform duration-500 ${open ? 'rotate-180' : ''}`}
+                    className={`mt-1 shrink-0 transition-transform duration-500 ${open ? 'rotate-180' : ''} ${
+                      surface === 'muted' ? 'text-brand-gold' : 'text-brand-gold-dark'
+                    }`}
                     aria-hidden
                   />
                 </button>
@@ -88,7 +98,9 @@ export function LearningTracksSection({ tracks }: Props) {
                     <div className="pt-4">
                       <Link
                         to="/courses"
-                        className="inline-flex items-center gap-1 text-sm font-bold text-brand-gold-dark underline-offset-2 transition-all hover:gap-2 hover:text-brand-navy hover:underline"
+                        className={`inline-flex items-center gap-1 text-sm font-bold underline-offset-2 transition-all hover:gap-2 hover:underline ${
+                          surface === 'muted' ? 'text-brand-gold hover:text-brand-gold-dark' : 'text-brand-gold-dark hover:text-brand-navy'
+                        }`}
                       >
                         Browse courses in this area
                         <span aria-hidden>→</span>

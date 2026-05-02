@@ -12,12 +12,12 @@ function LearningPathSpine() {
             <span className="text-[8px] font-semibold uppercase tracking-wider text-brand-navy/40">{label}</span>
             <span
               className={`h-2 w-2 shrink-0 rounded-full ring-2 ring-white/90 ${
-                i === 0 ? 'bg-brand-sun' : i === 1 ? 'bg-brand-gold' : 'bg-brand-mint'
+                i === 0 ? 'bg-brand-gold' : i === 1 ? 'bg-brand-navy' : 'bg-slate-400'
               }`}
             />
           </div>
           {i < steps.length - 1 ? (
-            <div className="mr-1 mt-1 h-7 w-px shrink-0 bg-linear-to-b from-brand-sun/50 via-brand-gold/40 to-brand-mint/45" />
+            <div className="mr-1 mt-1 h-7 w-px shrink-0 bg-linear-to-b from-brand-gold/50 via-brand-navy/40 to-slate-300" />
           ) : null}
         </div>
       ))}
@@ -28,9 +28,9 @@ function LearningPathSpine() {
 /** Abstract stacked “modules” (no photos). */
 function LeftModuleStack({ dx, dy }: { dx: number; dy: number }) {
   const cards = [
-    { label: 'Learn', bar: 'w-4/5', tilt: '-rotate-1', from: 'from-brand-sun/35', to: 'to-brand-sun/5' },
-    { label: 'Practice', bar: 'w-full', tilt: 'rotate-1', from: 'from-brand-gold/30', to: 'to-cyan-500/10' },
-    { label: 'Lead', bar: 'w-3/5', tilt: '-rotate-[0.5deg]', from: 'from-brand-mint/30', to: 'to-emerald-600/10' }
+    { label: 'Learn', bar: 'w-4/5', tilt: '-rotate-1', from: 'from-brand-gold-light/90', to: 'to-slate-100/80' },
+    { label: 'Practice', bar: 'w-full', tilt: 'rotate-1', from: 'from-brand-gold/15', to: 'to-slate-50' },
+    { label: 'Lead', bar: 'w-3/5', tilt: '-rotate-[0.5deg]', from: 'from-slate-100', to: 'to-brand-gold-light/60' }
   ]
   return (
     <div
@@ -55,8 +55,8 @@ function LeftModuleStack({ dx, dy }: { dx: number; dy: number }) {
 function TopicStack() {
   const items = [
     { label: 'On-demand', className: 'bg-brand-navy/10 text-brand-navy/75 ring-brand-navy/15' },
-    { label: 'FM & CRE', className: 'ml-2 bg-brand-sun/20 text-brand-gold-dark/90 ring-brand-sun/35' },
-    { label: 'Skill paths', className: 'ml-4 bg-brand-mint/15 text-brand-gold-dark/80 ring-brand-mint/25' }
+    { label: 'FM & CRE', className: 'ml-2 bg-brand-gold-light text-brand-navy/90 ring-brand-gold/25' },
+    { label: 'Skill paths', className: 'ml-4 bg-slate-100 text-brand-navy/80 ring-slate-200' }
   ]
   return (
     <div className="flex flex-col items-start gap-2 pl-0.5" aria-hidden>
@@ -88,13 +88,13 @@ function RightFlowDecor({ dx, dy }: { dx: number; dy: number }) {
           strokeLinecap="round"
           className="opacity-80"
         />
-        <circle cx="32" cy="10" r="3" className="fill-brand-sun/70" />
-        <circle cx="8" cy="64" r="2.5" className="fill-brand-mint/60" />
+        <circle cx="32" cy="10" r="3" className="fill-brand-gold" />
+        <circle cx="8" cy="64" r="2.5" className="fill-brand-navy/70" />
       </svg>
       <div className="flex w-full flex-col gap-2">
-        <div className="h-2 w-full rounded-full bg-linear-to-r from-brand-gold/35 to-transparent" />
-        <div className="h-2 w-4/5 rounded-full bg-linear-to-r from-brand-mint/30 to-transparent" />
-        <div className="h-2 w-3/5 rounded-full bg-linear-to-r from-brand-violet-bright/25 to-transparent" />
+        <div className="h-2 w-full rounded-full bg-linear-to-r from-brand-gold/40 to-transparent" />
+        <div className="h-2 w-4/5 rounded-full bg-linear-to-r from-brand-navy/25 to-transparent" />
+        <div className="h-2 w-3/5 rounded-full bg-linear-to-r from-slate-300/80 to-transparent" />
       </div>
     </div>
   )
@@ -112,18 +112,18 @@ export function HomeViewportRails() {
       <div
         className="pointer-events-none absolute bottom-0 left-0 top-16 z-1 hidden w-[3px] rounded-full md:block"
         style={{
-          background: 'linear-gradient(180deg, #ffb020 0%, #06b6d4 42%, #34d399 100%)',
-          opacity: 0.65,
-          boxShadow: '2px 0 12px rgba(6, 182, 212, 0.15)'
+          background: 'linear-gradient(180deg, #3B82F6 0%, #2563EB 45%, #1E3A8A 100%)',
+          opacity: 0.75,
+          boxShadow: '2px 0 12px rgba(30, 58, 138, 0.15)'
         }}
         aria-hidden
       />
       <div
         className="pointer-events-none absolute bottom-0 right-0 top-16 z-1 hidden w-[3px] rounded-full md:block"
         style={{
-          background: 'linear-gradient(180deg, #34d399 0%, #06b6d4 48%, #ffb020 100%)',
-          opacity: 0.55,
-          boxShadow: '-2px 0 12px rgba(255, 176, 32, 0.12)'
+          background: 'linear-gradient(180deg, #1E3A8A 0%, #2563EB 55%, #3B82F6 100%)',
+          opacity: 0.7,
+          boxShadow: '-2px 0 12px rgba(30, 58, 138, 0.12)'
         }}
         aria-hidden
       />
@@ -137,16 +137,16 @@ export function HomeViewportRails() {
           className="absolute inset-0 opacity-90"
           style={{
             background: `
-              radial-gradient(ellipse 120% 45% at 100% 12%, rgba(6, 182, 212, 0.14), transparent 55%),
-              radial-gradient(ellipse 100% 40% at 85% 55%, rgba(255, 176, 32, 0.1), transparent 50%),
-              radial-gradient(ellipse 80% 35% at 100% 88%, rgba(52, 211, 153, 0.08), transparent 48%)
+              radial-gradient(ellipse 120% 45% at 100% 12%, rgba(37, 99, 235, 0.08), transparent 55%),
+              radial-gradient(ellipse 100% 40% at 85% 55%, rgba(30, 58, 138, 0.06), transparent 50%),
+              radial-gradient(ellipse 80% 35% at 100% 88%, rgba(148, 163, 184, 0.12), transparent 48%)
             `,
             maskImage: 'linear-gradient(90deg, black 0%, black 50%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(90deg, black 0%, black 50%, transparent 100%)'
           }}
         />
         <div
-          className="absolute -left-6 top-1/4 h-32 w-32 rounded-full bg-brand-sun/15 blur-2xl home-float-a"
+          className="absolute -left-6 top-1/4 h-32 w-32 rounded-full bg-brand-gold/10 blur-2xl home-float-a"
           style={{ transform: `translate3d(${x * 0.25}px, ${y * 0.15}px, 0)` }}
         />
         <div className="relative flex h-full flex-col items-end pb-36 pt-10 pr-3">
@@ -187,16 +187,16 @@ export function HomeViewportRails() {
           className="absolute inset-0 opacity-95"
           style={{
             background: `
-              radial-gradient(ellipse 120% 50% at 0% 18%, rgba(139, 92, 246, 0.1), transparent 55%),
-              radial-gradient(ellipse 100% 42% at 15% 52%, rgba(52, 211, 153, 0.09), transparent 50%),
-              radial-gradient(ellipse 90% 38% at 0% 85%, rgba(6, 182, 212, 0.1), transparent 48%)
+              radial-gradient(ellipse 120% 50% at 0% 18%, rgba(30, 58, 138, 0.07), transparent 55%),
+              radial-gradient(ellipse 100% 42% at 15% 52%, rgba(37, 99, 235, 0.06), transparent 50%),
+              radial-gradient(ellipse 90% 38% at 0% 85%, rgba(148, 163, 184, 0.1), transparent 48%)
             `,
             maskImage: 'linear-gradient(270deg, black 0%, black 50%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(270deg, black 0%, black 50%, transparent 100%)'
           }}
         />
         <div
-          className="absolute -right-8 bottom-1/3 h-28 w-28 rounded-full bg-brand-violet-bright/12 blur-2xl home-float-b"
+          className="absolute -right-8 bottom-1/3 h-28 w-28 rounded-full bg-slate-200/60 blur-2xl home-float-b"
           style={{ transform: `translate3d(${-x * 0.2}px, ${-y * 0.12}px, 0)` }}
         />
         <div className="relative flex h-full flex-col items-start pb-36 pt-10 pl-3">
@@ -213,15 +213,15 @@ export function HomeViewportRails() {
             </p>
             <div className="flex flex-col gap-2.5 border-l-2 border-dashed border-brand-gold/35 pl-2.5">
               <span className="flex items-center gap-1.5 text-[8px] font-bold text-brand-gold-dark/55">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-sun" />
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-navy" />
                 Modules
               </span>
               <span className="flex items-center gap-1.5 text-[8px] font-bold text-brand-navy/40">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
                 Tracks
               </span>
-              <span className="flex items-center gap-1.5 text-[8px] font-bold text-brand-mint/70">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-mint" />
+              <span className="flex items-center gap-1.5 text-[8px] font-bold text-slate-500">
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
                 Catalog
               </span>
             </div>

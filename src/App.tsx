@@ -25,6 +25,10 @@ function App() {
           path="/corporates"
           element={<PlaceholderPage title="FMNXT for Corporates" description="Corporate learning and partnerships." />}
         />
+        <Route
+          path="/about"
+          element={<PlaceholderPage title="About FMNXT" description="We are polishing this page. In the meantime, explore courses or get in touch from the home page." />}
+        />
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

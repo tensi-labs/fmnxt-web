@@ -5,13 +5,13 @@ type Theme = 'emerald' | 'indigo';
 
 const laneClass: Record<Theme, string> = {
   emerald:
-    'inline-flex items-center gap-2 rounded-full bg-linear-to-r from-emerald-500 via-teal-500 to-cyan-500 px-3 py-1.5 text-white shadow-sm',
+    'inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-navy via-brand-gold to-brand-gold-dark px-3 py-1.5 text-white shadow-sm',
   indigo:
     'inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-navy via-brand-gold to-brand-gold-dark px-3 py-1.5 text-white shadow-sm'
 };
 
 const prevBtnClass: Record<Theme, string> = {
-  emerald: 'rounded-full border-emerald-200 bg-white text-emerald-700',
+  emerald: 'rounded-full border-slate-200 bg-white text-brand-navy',
   indigo: 'rounded-full border-slate-200 bg-white text-brand-navy'
 };
 

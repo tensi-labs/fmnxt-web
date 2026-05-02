@@ -16,18 +16,14 @@ export function AppShell({ children }: PropsWithChildren) {
     <CartProvider>
       <HomeCourseSearchProvider>
         <div
-          className={`relative min-h-screen overflow-x-clip text-slate-900 ${
-            isHomeRoute
-              ? 'home-shell-gradient'
-              : 'bg-linear-to-b from-slate-100 via-brand-gold-light/35 to-slate-100'
-          }`}
+          className="relative min-h-screen overflow-x-clip bg-white text-slate-900"
         >
           <Header />
           {isHomeRoute ? <HomeViewportRails /> : null}
           <main
-            className={`relative z-10 mx-auto w-full max-w-[1360px] px-4 py-6 pb-24 sm:px-6 md:pb-6 lg:px-10 ${
-              isLoginRoute ? 'max-md:p-0' : ''
-            }`}
+            className={`relative z-10 mx-auto w-full max-w-[1360px] px-4 pb-24 sm:px-6 md:pb-6 lg:px-10 ${
+              isHomeRoute ? 'pt-0' : 'py-6'
+            } ${isLoginRoute ? 'max-md:p-0' : ''}`}
           >
             {children}
           </main>

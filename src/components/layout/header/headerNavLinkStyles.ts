@@ -15,6 +15,6 @@ export function headerGoldSubscribeNavLinkClass({ isActive }: { isActive: boolea
   return `${subscribeNavShell} ${
     isActive
       ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/20 ring-1 ring-brand-navy/20 ring-offset-2 ring-offset-slate-50'
-      : 'bg-brand-navy text-white shadow-sm shadow-brand-navy/15 ring-1 ring-cyan-400/30 hover:-translate-y-px hover:bg-brand-gold hover:text-brand-navy hover:shadow-md hover:shadow-cyan-500/25 hover:ring-brand-gold/50 active:translate-y-0'
+      : 'bg-brand-navy text-white shadow-sm shadow-brand-navy/15 ring-1 ring-blue-400/35 hover:-translate-y-px hover:bg-brand-gold hover:text-white hover:shadow-md hover:shadow-blue-500/20 hover:ring-brand-gold/45 active:translate-y-0'
   }`
 }

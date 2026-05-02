@@ -5,28 +5,28 @@ import { HomeDecorativeImage } from './HomeDecorativeImage'
 export function WhyFmnxtSection() {
   return (
     <section
-      id="home-why"
-      className="relative overflow-hidden rounded-[28px] bg-linear-to-br from-brand-navy via-[#0c4a6e] to-brand-violet-bright/40 p-6 shadow-lg shadow-brand-navy/25 md:rounded-[34px] md:p-8"
+      id="home-stay-connected"
+      className="home-accent-top home-surface-elevated relative overflow-hidden rounded-2xl border border-neutral-200/90 bg-white p-6 md:rounded-3xl md:p-8 lg:p-10"
     >
-      <div className="pointer-events-none absolute -left-6 top-10 h-24 w-24 rounded-full border border-white/20 home-float-a" />
-      <div className="pointer-events-none absolute right-16 top-8 h-3 w-3 rotate-12 rounded-sm bg-brand-sun/70 home-float-b" />
-      <div className="pointer-events-none absolute right-10 bottom-12 h-2.5 w-2.5 rotate-12 rounded-sm bg-brand-mint/80 home-float-c" />
+      <div className="pointer-events-none absolute -left-8 top-12 h-28 w-28 rounded-full bg-brand-gold-light blur-2xl home-float-a" />
+      <div className="pointer-events-none absolute right-20 top-10 h-3 w-3 rotate-12 rounded-sm bg-brand-gold home-float-b" />
+      <div className="pointer-events-none absolute right-12 bottom-14 h-2.5 w-2.5 rotate-12 rounded-sm bg-brand-gold-dark home-float-c" />
       <Row gutter={[24, 24]} align="middle">
         <Col xs={24} md={16}>
-          <Tag className="border-brand-sun/50! bg-brand-sun/15! text-brand-sun!">Why FMNXT</Tag>
-          <Typography.Title level={3} className="mt-3 mb-2 !text-white">
+          <Tag className="border-brand-gold/35! bg-brand-gold-light! font-semibold! text-brand-gold-dark!">Stay connected</Tag>
+          <Typography.Title level={3} className="mt-3 mb-2 !text-slate-900">
             Purpose-built learning for Facilities Management and Corporate Real Estate careers.
           </Typography.Title>
-          <Typography.Text className="text-slate-200">
+          <Typography.Text className="text-slate-600">
             Practical topics, affordable pricing, and simple course delivery for working professionals.
           </Typography.Text>
         </Col>
         <Col xs={24} md={8}>
           <Card
             styles={{ body: { background: 'rgba(255,255,255,0.98)', borderRadius: 20, padding: 12 } }}
-            className="mx-auto max-w-xs border-0 shadow-2xl shadow-brand-navy/30 home-float-b"
+            className="mx-auto max-w-xs border-slate-100 shadow-xl shadow-brand-gold/15 ring-1 ring-brand-gold/15 home-float-b"
           >
-            <div className="group overflow-hidden rounded-xl">
+            <div className="group overflow-hidden rounded-xl ring-2 ring-brand-gold-light">
               <HomeDecorativeImage
                 src={homeWhyImage.src}
                 fallbackSrc={homeWhyImage.fallbackSrc}

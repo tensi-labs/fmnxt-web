@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <header className={isCenter ? 'mx-auto max-w-3xl text-center' : ''}>
       <Typography.Text
-        className={`mb-0 block text-[11px] font-bold uppercase tracking-[0.2em] text-brand-gold-dark md:text-xs ${
+        className={`mb-0 block text-[11px] font-bold uppercase tracking-[0.24em] text-brand-gold md:text-xs ${
           isCenter ? '' : ''
         }`}
       >
@@ -41,7 +41,7 @@ export function SectionHeading({
         level={2}
         className={
           titleClassName ??
-          `!mb-2 !mt-0 !text-[1.35rem] !font-bold !leading-[1.15] !tracking-tight text-brand-navy md:!text-[1.75rem] ${
+          `!mb-2 !mt-0 !text-[1.35rem] !font-bold !leading-[1.15] !tracking-tight text-slate-900 md:!text-[1.75rem] ${
             isCenter ? '' : ''
           }`
         }

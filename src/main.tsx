@@ -12,13 +12,16 @@ createRoot(document.getElementById('root')!).render(
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: BRAND.navy,
-          colorLink: BRAND.goldDark,
-          colorLinkHover: BRAND.gold,
+          colorPrimary: BRAND.gold,
+          colorLink: BRAND.gold,
+          colorLinkHover: BRAND.goldDark,
           colorInfo: BRAND.gold,
-          colorSuccess: '#0d9488',
+          colorSuccess: '#15803d',
+          colorText: '#111827',
+          colorTextSecondary: '#6B7280',
+          colorBgLayout: '#FFFFFF',
           borderRadius: 14,
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: '"Plus Jakarta Sans", Inter, system-ui, sans-serif',
         },
       }}
     >
